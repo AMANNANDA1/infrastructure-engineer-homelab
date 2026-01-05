@@ -2,7 +2,7 @@
 
 Hands-on hybrid infrastructure lab demonstrating Windows, Linux, VMware, and basic cloud skills.
 
-🚀Skills Demonstrated
+## Skills Demonstrated
 - Windows & Linux administration
 - Patch management (Bash & PowerShell)
 - VMware virtual machines
