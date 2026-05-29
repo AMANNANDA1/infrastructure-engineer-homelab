@@ -58,8 +58,15 @@ done
 
 # --- Open ports audit ---
 log "--- Listening Ports ---"
-ss -tlnp 2>/dev/null | tee -a "$LOG_FILE"
+PORT_OUTPUT=$(ss -tlnp 2>/dev/null)
+echo "$PORT_OUTPUT" | tee -a "$LOG_FILE"
 
+PORT_COUNT=$(echo "$PORT_OUTPUT" | grep -c "LISTEN" || true)
+if [ "$PORT_COUNT" -eq 0 ]; then
+  log "OK: No open listening ports found — clean system"
+else
+  log "INFO: $PORT_COUNT listening port(s) detected — review above"
+fi
 log "===== Maintenance Complete. Report saved to: $LOG_FILE ====="
 echo ""
 echo "Full report: $LOG_FILE"
