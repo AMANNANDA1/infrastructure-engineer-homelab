@@ -58,12 +58,17 @@ See [docs/troubleshooting.md](docs/troubleshooting.md) for full debug log includ
 
 ## Screenshots
 
-### Linux — Clean Run
-![Linux Output](screenshots/linux-output-final.png)
+### Linux — Initial Run (Permission Denied Bug)
+![Linux Screenshot 1](screenshots/Screenshot%20(678).png)
+
+### Linux — Fixed Clean Run
+![Linux Screenshot 2](screenshots/Screenshot%20(679).png)
+
+### Linux — Final Run (SSH and UFW fixed)
+![Linux Screenshot 3](screenshots/Screenshot%20(681).png)
 
 ### Windows — Patch & Health Report
-![Windows Output](screenshots/windows-output-v2.png)
-
+![Windows Output](screenshots/Screenshot%20from%202026-05-29%2002-00-43.png)
 ---
 
 ## Skills Demonstrated
