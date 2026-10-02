@@ -98,13 +98,13 @@ See [docs/troubleshooting.md](docs/troubleshooting.md) for full debug log includ
 ![Linux initial run with permission denied error](screenshots/linux-initial-run-permission-denied.png)
 
 ### Windows — Script in PowerShell
-![Windows PowerShell with windows-patch.ps1 script](windows-script-powershell.png)
+![Windows PowerShell with windows-patch.ps1 script](screenshots/Windows-script-powershell.png)
 
 ### Windows — Patch & Health Report
-![Windows patch and health report output](windows-patch-health-report.png)
+![Windows patch and health report output](screenshots/windows-patch-health-report.png)
 
 ### Linux — Final Run (Updates, Services, Open Ports)
-![Linux final run output](linux-final-run.png)
+![Linux final run output](screenshots/linux-final-run.png)
 
 ---
 
