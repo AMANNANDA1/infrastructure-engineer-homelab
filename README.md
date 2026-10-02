@@ -1,6 +1,6 @@
 # 🛠️ Infrastructure Engineer Home Lab
 
-Hands-on hybrid infrastructure lab demonstrating real sysadmin, 
+Hands-on hybrid infrastructure lab demonstrating real sysadmin,
 cloud, and security skills on Windows 11 and Kali Linux using VMware.
 
 ---
@@ -11,6 +11,15 @@ cloud, and security skills on Windows 11 and Kali Linux using VMware.
 |---|---|---|
 | Kali Linux VM | VMware | Patch management, service monitoring, port auditing |
 | Windows 11 (Host) | Physical | PowerShell automation, patch auditing, Defender monitoring |
+
+---
+
+## Prerequisites
+
+| System | Requirement |
+|---|---|
+| Kali Linux VM | Bash, `sudo` access, internet access for `apt` |
+| Windows 11 | PowerShell 5.1+, run as **Administrator** |
 
 ---
 
@@ -27,10 +36,37 @@ Automated Linux maintenance script that:
 ### windows-patch.ps1 (PowerShell)
 Windows health and patch audit script that:
 - Lists all patches installed in last 30 days
-- Monitors critical services (Windows Update, Defender, DNS, EventLog)
+- Monitors critical services (Windows Update, Defender, DNS, EventLog, Windows Time)
 - Checks disk usage on all drives and warns above 80%
 - Verifies Windows Defender status and signature freshness
 - Saves dated report to Documents folder
+
+---
+
+## How to Run
+
+### Linux (Kali)
+
+```bash
+git clone https://github.com/AMANNANDA1/infrastructure-engineer-homelab.git
+cd infrastructure-engineer-homelab/scripts
+chmod +x linux-update.sh
+sudo ./linux-update.sh
+```
+
+The report is saved to `~/logs/`. If you get `permission denied`, the script is missing its execute bit, so run the `chmod +x` line. See [docs/troubleshooting.md](docs/troubleshooting.md).
+
+### Windows 11
+
+Open PowerShell **as Administrator**, then:
+
+```powershell
+cd path\to\infrastructure-engineer-homelab\scripts
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\windows-patch.ps1
+```
+
+The report is saved to `Documents\patch-report-<date>.txt`. The execution policy change applies to the current session only.
 
 ---
 
@@ -59,23 +95,24 @@ See [docs/troubleshooting.md](docs/troubleshooting.md) for full debug log includ
 ## Screenshots
 
 ### Linux — Initial Run (Permission Denied Bug)
-![Linux Screenshot 1](screenshots/Screenshot%20(678).png)
+![Linux initial run with permission denied error](linux-initial-run-permission-denied.png)
 
-### Linux — Fixed Clean Run
-![Linux Screenshot 2](screenshots/Screenshot%20(679).png)
-
-### Linux — Final Run (SSH and UFW fixed)
-![Linux Screenshot 3](screenshots/Screenshot%20(681).png)
+### Windows — Script in PowerShell
+![Windows PowerShell with windows-patch.ps1 script](windows-script-powershell.png)
 
 ### Windows — Patch & Health Report
-![Windows Output](screenshots/Screenshot%20from%202026-05-29%2002-00-43.png)
+![Windows patch and health report output](windows-patch-health-report.png)
+
+### Linux — Final Run (Updates, Services, Open Ports)
+![Linux final run output](linux-final-run.png)
+
 ---
 
 ## Skills Demonstrated
 
 - Linux & Windows system administration
 - Bash and PowerShell scripting
-- Security hardening (SSH, UFW, Defender)
+- Security auditing and remediation (SSH, UFW, Defender)
 - Patch management and compliance checking
 - Service monitoring and alerting
 - Debug and troubleshooting documentation
