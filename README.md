@@ -95,7 +95,7 @@ See [docs/troubleshooting.md](docs/troubleshooting.md) for full debug log includ
 ## Screenshots
 
 ### Linux — Initial Run (Permission Denied Bug)
-![Linux initial run with permission denied error](linux-initial-run-permission-denied.png)
+![Linux initial run with permission denied error](screenshots/linux-initial-run-permission-denied.png)
 
 ### Windows — Script in PowerShell
 ![Windows PowerShell with windows-patch.ps1 script](windows-script-powershell.png)
